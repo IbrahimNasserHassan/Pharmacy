@@ -6,7 +6,7 @@
 				<div class="breadcrumb-header justify-content-between">
 					<div class="my-auto">
 						<div class="d-flex">
-							<h4 class="content-title mb-0 my-auto"> المبيعات</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/تقرير المبيعات</span>
+							<h6 class="content-title mb-0 my-auto"> المبيعات</h6><span class="text-muted mt-1 tx-13 mr-2 mb-0">/تقرير المبيعات</span>
 						</div>
 					</div>
 					
@@ -17,7 +17,6 @@
 <div class="container">
     <h2 class="mb-4">📊 تقارير المبيعات</h2>
 
-    <!-- ✅ فلترة التواريخ -->
     <form method="GET" action="{{ route('reports') }}" class="mb-3">
         <label for="from">📅 من:</label>
         <input type="date" name="from" id="from" value="{{ $from }}" class="form-control d-inline-block w-auto">
@@ -28,17 +27,16 @@
         <button type="submit" class="btn btn-primary">🔍 بحث</button>
     </form>
 
-    <!-- ✅ المخطط البياني -->
     <div class="card p-3">
         <canvas id="salesChart"></canvas>
     </div>
 
-    <!-- ✅ جدول المبيعات -->
+
     <table id="salesTable" class="table table-bordered mt-4">
         <thead class="table-dark">
             <tr>
                 <th>📅 التاريخ</th>
-                <th>💰 المبيعات (بالجنيه السوداني)</th>
+                <th>💰 إجمالي المبيعات ( باليوم)</th>
             </tr>
         </thead>
         <tbody>
@@ -59,7 +57,6 @@
     document.addEventListener("DOMContentLoaded", function () {
         let salesData = @json($sales);
 
-        // 💡 إعداد البيانات للمخطط
         let dates = salesData.map(s => s.date);
         let totals = salesData.map(s => s.total_sales);
 
@@ -83,10 +80,14 @@
             }
         });
 
-        // 💡 تحسين الجدول
+        
         $('#salesTable').DataTable();
     });
 </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
 @endsection
 @section('js')
 @endsection

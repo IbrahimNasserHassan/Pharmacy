@@ -23,21 +23,22 @@ class InvoiceController extends Controller
     //     $this->authorizeResource(Invoice::class, 'invoice');
     // }
 
-    // عرض قائمة الفواتير
     public function index()
     {
-        $invoices = Invoice::all();
+        $invoices = Invoice::select()->orderby('id','DESC')->paginate('50');
         return view('invoices.invoicesIndex', compact('invoices'));
     }
+                    //End Method
 
-    // عرض صفحة إنشاء فاتورة جديدة
+
     public function create()
     {
         $products = Product::all();
         return view('invoices.invoicesCreate', compact('products'));
     }
+                //End Method
 
-    ////////////// Store Method/////////////////////
+
     public function store(Request $request)
     {
         $this->authorize('create', Invoice::class); 
@@ -51,8 +52,6 @@ class InvoiceController extends Controller
                 'products.*.quantity' => 'required|integer|min:1'
             ]);
         
-        
-        // إنشاء الفاتورة
         $invoice = Invoice::create();
 
         // dd($invoice);
@@ -63,15 +62,18 @@ class InvoiceController extends Controller
             $product = Product::findOrFail($productData['id']);
     
             // التحقق من توفر الكمية المطلوبة
+
             if ($product->quantity < $productData['quantity']) {
                 return redirect()->back()->with('error', "الكمية المطلوبة من {$product->name} غير متوفرة!");
             }
     
             // خصم الكمية من المخزون
+
             $product->quantity -= $productData['quantity'];
             $product->save();
     
             // فحص إذا كانت الكمية بعد الخصم أقل من الحد الأدنى
+            
             if ($product->quantity < 5) {
                 session()->flash('warning', "⚠️ المنتج {$product->name} قارب على النفاد ({$product->quantity} قطع متبقية).");
             }
@@ -81,7 +83,7 @@ class InvoiceController extends Controller
                 'quantity' => $productData['quantity'],
                 'price' => $product->price,
                 'subtotal' => $subtotal,
-                'total_amount' => $subtotal // تأكد من تضمين total_amount
+                'total_amount' => $subtotal 
 
             ]);
     
@@ -89,7 +91,6 @@ class InvoiceController extends Controller
         }
     
         // تحديث إجمالي الفاتورة
-        // $invoice->update(['total_amount' => $total]);
         $invoice->total_amount = $total;
         $invoice->save();
         return redirect()->route('invoices.index')->with('success', 'تم إنشاء الفاتورة بنجاح وتم تحديث المخزون.');
@@ -99,44 +100,41 @@ class InvoiceController extends Controller
 
     }
 }
+                //End Method
 
 
 
-    // عرض تفاصيل فاتورة معينة
     public function show(Invoice $invoice)
     {
         return view('invoices.InvoicesShow', compact('invoice'));
     }
+            //End Method
 
-    // تعديل فاتورة
+
+
     public function edit($id)
     {
         
     
-$invoice = Invoice::with('products')->findOrFail($id);  // assuming there is a relation 'products' in Invoice model
-
-// استرجاع جميع المنتجات 
+$invoice = Invoice::with('products')->findOrFail($id);  
 $products = Product::all();
-
 
 return view('invoices.invoicesEdit', compact('invoice', 'products'));
 
-
     }
+            //End Method
 
 
-    // تعديل الفاتورة
+
     public function update(Request $request, $id)
     {
-        // التحقق من البيانات المدخلة
         $validated = $request->validate([
-            'products' => 'required|array', // تأكد من وجود المنتجات
-            'products.*.id' => 'required|exists:products,id', // التأكد من صحة الـ product id
-            'products.*.quantity' => 'required|integer|min:1', // التأكد من الكمية
+            'products' => 'required|array',
+            'products.*.id' => 'required|exists:products,id',
+            'products.*.quantity' => 'required|integer|min:1',
         ]);
     
 
-        // استرجاع الفاتورة من قاعدة البيانات
         $invoice = Invoice::findOrFail($id);
 
         $invoice->products()->sync([]);
@@ -155,9 +153,10 @@ return view('invoices.invoicesEdit', compact('invoice', 'products'));
             ]);
         }
     
-        // إعادة التوجيه إلى الصفحة المناسبة بعد التحديث مع رسالة نجاح
         return redirect()->route('invoices.index')->with('success', 'تم تحديث الفاتورة بنجاح');
     }
+                     //End Method
+
     
 
     public function search(Request $request)
@@ -181,7 +180,7 @@ return view('invoices.invoicesEdit', compact('invoice', 'products'));
         $invoices = $query->orderBy('created_at', 'desc')->get();
 
         if ($invoices->isEmpty()) {
-            return response()->json([]); // إرجاع مصفوفة فارغة بدلاً من خطأ 404
+            return response()->json([]); 
         }
 
         return response()->json($invoices);
@@ -189,10 +188,11 @@ return view('invoices.invoicesEdit', compact('invoice', 'products'));
         return response()->json(['error' => $e->getMessage()], 500);
     }
 }
+                //End Method
 
     
 
-    // حذف الفاتورة
+
     public function destroy(Invoice $invoice)
     {
         // $this->authorize('delete', $invoice);
@@ -201,14 +201,7 @@ return view('invoices.invoicesEdit', compact('invoice', 'products'));
         
         return redirect()->route('invoices.index')->with('success', 'تم الحذف بنجاح!  .');
     }
+            //End Method
 
 
-
-
-
-    // طباعة الفاتورة
-    public function print(Invoice $invoice)
-    {
-        return view('invoices.print', compact('invoice'));
-    }
 }

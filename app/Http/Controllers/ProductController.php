@@ -33,7 +33,7 @@ class ProductController extends Controller
     {
         //
         $request->validate([
-            'name' => 'required|string|max:255', // تحسين: إضافة قيود على البيانات
+            'name' => 'required|string|max:255',  
             'price' => 'required|numeric|min:0',
             'quantity' => 'required|integer|min:1',
             'description' => 'nullable|string',

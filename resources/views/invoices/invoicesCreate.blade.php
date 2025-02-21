@@ -6,7 +6,7 @@
 				<div class="breadcrumb-header justify-content-between">
 					<div class="my-auto">
 						<div class="d-flex">
-							<h4 class="content-title mb-0 my-auto"></h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/</span>
+							<h6 class="content-title mb-0 my-auto">الفواتير</h6><span class="text-muted mt-1 tx-13 mr-2 mb-0"> / إنشاء فاتورة جديدة</span>
 						</div>
 					</div>
 					
@@ -14,28 +14,9 @@
 				<!-- breadcrumb -->
 @endsection
 @section('content')
-				<!-- row -->
 				
-				
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
-
-<link href="{{URL::asset('assets/plugins/owl-carousel/owl.carousel.css')}}" rel="stylesheet" />
-<!-- Maps css -->
-<link href="{{URL::asset('assets/plugins/jqvmap/jqvmap.min.css')}}" rel="stylesheet">
-{{-- @endsection --}}
-    <title>عرض الفواتير</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
 	
-				<!-- row -->
+				
 				<div class="row">
                     <div class="container mt-3">
                         <div class="container">
@@ -46,18 +27,11 @@
                                     {{ session('success') }}
                                 </div>
                             @endif
-                            <input type="text" id="product-search" placeholder="ابحث عن المنتج..." class="form-control">
+                            {{-- <input type="text" id="product-search" placeholder="ابحث عن المنتج..." class="form-control"> --}}
                             <ul id="search-results" class="list-group"></ul>
                             <form action="{{ route('invoices.store') }}" method="POST">
                                 @csrf
                         
-                                <!-- اسم العميل -->
-                                {{-- <div class="mb-3">
-                                    <label for="customer_name" class="form-label">اسم العميل</label>
-                                    <input type="text" name="customer_name" id="customer_name" class="form-control" required>
-                                </div> --}}
-                        
-                                <!-- قائمة المنتجات -->
                                 <div class="mb-3">
                                     <label class="form-label">اختر المنتجات</label>
                                     <table class="table table-bordered">
@@ -67,7 +41,7 @@
                                                 <th>السعر</th>
                                                 <th>الكمية</th>
                                                 <th>المجموع</th>
-                                                <th>إزالة</th>
+                                                <th>إلغاء</th>
                                             </tr>
                                         </thead>
                                         <tbody id="product-list">
@@ -92,13 +66,13 @@
                                     <button type="button" class="btn btn-primary" id="add-product">إضافة منتج آخر</button>
                                 </div>
                         
-                                <!-- إجمالي الفاتورة -->
+
                                 <div class="mb-3">
                                     <label for="total" class="form-label">إجمالي الفاتورة</label>
                                     <input type="text" id="total" class="form-control" readonly>
                                 </div>
                         
-                                <!-- زر الحفظ -->
+
                                 <button type="submit" class="btn btn-success">حفظ الفاتورة</button>
                             </form>
                         </div>
@@ -108,6 +82,7 @@
                         {{--   حساب الإجمالي    --}}
 
                         <script>
+
                         document.addEventListener("DOMContentLoaded", function() {
                             function calculateTotal() {
                                 let total = 0;
@@ -150,16 +125,14 @@
                                 }
                             });
                         });
+
                         </script>
                             </div>
-                            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
                         
-                        
-                    
-                        <!--Internal  Chart.bundle js -->
-                        <script src="{{URL::asset('assets/plugins/chart.js/Chart.bundle.min.js')}}"></script>
-                        <!-- Moment js -->
-                        <script src="{{URL::asset('assets/plugins/raphael/raphael.min.js')}}"></script>
+                        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+                        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+                        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
                         <!--Internal  Flot js-->
                         <script src="{{URL::asset('assets/plugins/jquery.flot/jquery.flot.js')}}"></script>
                         <script src="{{URL::asset('assets/plugins/jquery.flot/jquery.flot.pie.js')}}"></script>
@@ -167,29 +140,20 @@
                         <script src="{{URL::asset('assets/plugins/jquery.flot/jquery.flot.categories.js')}}"></script>
                         <script src="{{URL::asset('assets/js/dashboard.sampledata.js')}}"></script>
                         <script src="{{URL::asset('assets/js/chart.flot.sampledata.js')}}"></script>
-                        <!--Internal Apexchart js-->
-                        <script src="{{URL::asset('assets/js/apexcharts.js')}}"></script>
-                        <!-- Internal Map -->
-                        <script src="{{URL::asset('assets/plugins/jqvmap/jquery.vmap.min.js')}}"></script>
-                        <script src="{{URL::asset('assets/plugins/jqvmap/maps/jquery.vmap.usa.js')}}"></script>
-                        <script src="{{URL::asset('assets/js/modal-popup.js')}}"></script>
+                    
                         <!--Internal  index js -->
                         <script src="{{URL::asset('assets/js/index.js')}}"></script>
                         <script src="{{URL::asset('assets/js/jquery.vmap.sampledata.js')}}"></script>
-				{{-- </div>
+				</div>
 				<!-- row closed -->
 			</div>
 			<!-- Container closed -->
 		</div>
 		<!-- main-content closed -->
---}}
 
-</body>
-</html>
 
-{{--  --}}
-			
-		<!-- main-content closed -->
+
+
 @endsection
 @section('js')
 @endsection

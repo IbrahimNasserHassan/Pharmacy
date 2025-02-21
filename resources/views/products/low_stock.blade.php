@@ -14,7 +14,6 @@
 				</div>
 				<!-- breadcrumb -->
 @endsection
-@section('content')
 
 @section('content')
     <div class="container">

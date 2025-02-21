@@ -1,4 +1,7 @@
 @extends('layouts.master')
+@section('title')
+تعديل المنتج
+@endsection
 @section('css')
 @endsection
 @section('page-header')

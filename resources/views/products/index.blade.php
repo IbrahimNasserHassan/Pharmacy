@@ -1,4 +1,7 @@
 @extends('layouts.master')
+@section('title')
+المنتجات
+@endsection
 @section('css')
 @endsection
 @section('page-header')
@@ -16,25 +19,16 @@
 @section('content')
 				<!-- row -->
 			
-				<!DOCTYPE html>
-				<html lang="ar">
-				<head>
-					<meta charset="UTF-8">
-					<meta name="viewport" content="width=device-width, initial-scale=1.0">
-					<title>عرض المنتجات</title>
-					<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-					<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-				</head>
-				<body>
+				
 					<div class="container mt-5">
 						<h2 class="mb-4">قائمة المنتجات</h2>
 						
-						<!-- إشعارات النجاح -->
+
 						@if(session('success'))
 							<div class="alert alert-success">{{ session('success') }}</div>
 						@endif
 				
-						<!-- زر إضافة منتج جديد -->
+
 						<a href="{{ route('products.create') }}" class="btn btn-primary mb-3">إضافة منتج جديد</a>
 				
 						<!-- جدول المنتجات -->
@@ -77,9 +71,10 @@
 							</div>
 					</div>
 					<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+					<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+					<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+			
 				
-				</body>
-				</html>
 				
 				
 		<!-- main-content closed -->

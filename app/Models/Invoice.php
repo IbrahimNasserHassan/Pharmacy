@@ -15,7 +15,7 @@ class Invoice extends Model
 
         return $this->hasMany(InvoiceDetail::class);
     }
-    //End 
+    // End function
 
 
     protected $fillable = ['name', 'total_amount, 10, 2', 'created_at', 'updated_at']; 
@@ -25,7 +25,7 @@ class Invoice extends Model
     public function products(){
 
     return $this->belongsToMany(Product::class, 'invoice_product')
-    ->withPivot(['quantity', 'subtotal']) // ✅ فقط الحقول الموجودة في جدول invoice_product
+    ->withPivot(['quantity', 'subtotal'])  
     ->withTimestamps();
 
     }

@@ -1,4 +1,7 @@
 @extends('layouts.master')
+@section('title')
+إنشاء فاتورة جديدة
+@endsection
 @section('css')
 @endsection
 @section('page-header')

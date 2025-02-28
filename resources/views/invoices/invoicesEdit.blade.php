@@ -4,15 +4,15 @@
 @endsection
 
 @section('page-header')
-    <!-- breadcrumb -->
-    <div class="breadcrumb-header justify-content-between">
+
+<div class="breadcrumb-header justify-content-between">
         <div class="my-auto">
             <div class="d-flex">
                 <h4 class="content-title mb-0 my-auto">تعديل الفاتورة</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/ تعديل الفاتورة</span>
             </div>
         </div>
-    </div>
-    <!-- breadcrumb -->
+</div>
+
 @endsection
 
 @section('content')
@@ -82,8 +82,8 @@
             </div>
         </div>
 
-        <!-- حساب الإجمالي -->
-        <script>
+            {{-- حساب الإجمالي  --}}
+<script>
             document.addEventListener("DOMContentLoaded", function() {
                 function calculateTotal() {
                     let total = 0;

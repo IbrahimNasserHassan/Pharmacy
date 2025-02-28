@@ -3,10 +3,10 @@
 				<div class="container-fluid">
 					<div class="main-header-left ">
 						<div class="responsive-logo">
-							<a href="{{ url('/' . $page='index') }}"><img src="{{asset('assets/img/brand/lo.png')}}" class="logo-1" ></a>
-							<a href="{{ url('/' . $page='index') }}"><img src="{{asset('assets/img/brand/lo.png')}}" class="dark-logo-1" alt=""></a>
-							<a href="{{ url('/' . $page='index') }}"><img src="{{asset('assets/img/brand/lo.png')}}" class="logo-2" alt=""></a>
-							<a href="{{ url('/' . $page='index') }}"><img src="{{asset('assets/img/brand/lo.png')}}" class="dark-logo-2" alt=""></a>
+							<a href="#"><img src="{{asset('assets/img/faces/DCT.png')}}" class="logo-1" ></a>
+							<a href="#"><img src="{{asset('assets/img/faces/DCT.png')}}" class="dark-logo-1" alt=""></a>
+							<a href="#"><img src="{{asset('assets/img/faces/DCT.png')}}" class="logo-2" alt=""></a>
+							<a href="#"><img src="{{asset('assets/img/faces/DCT.png')}}" class="dark-logo-2" alt=""></a>
 						</div>
 						<div class="app-sidebar__toggle" data-toggle="sidebar">
 							<a class="open-toggle" href="#"><i class="header-icon fe fe-align-left" ></i></a>
@@ -28,7 +28,7 @@
 												<i class="fas fa-times"></i>
 											</button>
 											<button type="submit" class="btn btn-default nav-link resp-btn">
-												<svg xmlns="{{ asset('assets/img/faces/lo.png') }}" class="header-icon-svgs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+												<svg xmlns="{{ asset('assets/img/faces/DCT.png') }}" class="header-icon-svgs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
 											</button>
 										</span>
 									</div>
@@ -38,11 +38,11 @@
 							
 							
 							<div class="dropdown main-profile-menu nav nav-item nav-link">
-								<a class="profile-user d-flex" href=""><img alt="" src="{{asset('assets/img/faces/lo.png')}}"></a>
+								<a class="profile-user d-flex" href=""><img alt="" src="{{asset('assets/img/faces/DCT.png')}}"></a>
 								<div class="dropdown-menu">
 									<div class="main-header-profile bg-primary p-3">
 										<div class="d-flex wd-100p">
-											<div class="main-img-user"><img alt="" src="{{asset('assets/img/faces/lo.png')}}" class=""></div>
+											<div class="main-img-user"><img alt="" src="{{asset('assets/img/faces/DCT.png')}}" class=""></div>
 											<div class="mr-3 my-auto">
 												<h6>{{ Auth::user()->name }}</h6><span>{{ Auth::user()->email }}</span>
 											</div>

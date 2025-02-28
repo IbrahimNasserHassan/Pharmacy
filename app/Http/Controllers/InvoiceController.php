@@ -68,12 +68,12 @@ class InvoiceController extends Controller
             }
     
             // خصم الكمية من المخزون
-
             $product->quantity -= $productData['quantity'];
             $product->save();
     
+
+
             // فحص إذا كانت الكمية بعد الخصم أقل من الحد الأدنى
-            
             if ($product->quantity < 5) {
                 session()->flash('warning', "⚠️ المنتج {$product->name} قارب على النفاد ({$product->quantity} قطع متبقية).");
             }

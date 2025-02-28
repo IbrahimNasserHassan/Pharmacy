@@ -17,8 +17,8 @@ class Product extends Model
 
     public function invoiceDetails(){
 
-         // إضافة العلاقات بين الموديلز
-    return $this->hasMany(InvoiceDetail::class);
+
+        return $this->hasMany(InvoiceDetail::class);
 
     }
 

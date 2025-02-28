@@ -1,17 +1,20 @@
 @extends('layouts.master')
+@section('title')
+تقاير المبيعات
+@endsection
 @section('css')
 @endsection
 @section('page-header')
-				<!-- breadcrumb -->
-				<div class="breadcrumb-header justify-content-between">
-					<div class="my-auto">
-						<div class="d-flex">
-							<h6 class="content-title mb-0 my-auto"> المبيعات</h6><span class="text-muted mt-1 tx-13 mr-2 mb-0">/تقرير المبيعات</span>
-						</div>
-					</div>
-					
-				</div>
-				<!-- breadcrumb -->
+
+        <div class="breadcrumb-header justify-content-between">
+            <div class="my-auto">
+                <div class="d-flex">
+                <h6 class="content-title mb-0 my-auto"> المبيعات</h6><span class="text-muted mt-1 tx-13 mr-2 mb-0">/تقرير المبيعات</span>
+                </div>
+            </div>
+        
+        </div>
+
 @endsection
 @section('content')
 <div class="container">
@@ -50,7 +53,7 @@
     </table>
 </div>
 
-<!-- ✅ تضمين المكتبات -->
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 <script>

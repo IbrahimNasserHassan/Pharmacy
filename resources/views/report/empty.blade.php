@@ -24,10 +24,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>تقارير المبيعات</title>
 
-    <!-- إضافة Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <!-- إضافة بعض التنسيقات الأساسية -->
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -58,7 +56,6 @@
 <body>
     <h1>تقارير المبيعات اليومية</h1>
 
-    <!-- نموذج الفلترة لتحديد التاريخ -->
     <div class="filter-form">
         <form method="GET" action="{{ route('reports') }}">
             <label for="from">من:</label>
@@ -71,21 +68,20 @@
         </form>
     </div>
 
-    <!-- تقرير المبيعات اليومية -->
     <div class="report-container">
         <h2>مبيعات الفترة من {{ $from }} إلى {{ $to }}</h2>
         <canvas id="daily-sales-chart"></canvas>
     </div>
 
     <script>
-        // الحصول على بيانات المبيعات
+
         fetch('{{ route("daily-sales-data", ["from" => $from, "to" => $to]) }}')
             .then(response => response.json())
             .then(data => {
                 const labels = data.map(item => item.date); // تواريخ المبيعات
                 const salesData = data.map(item => item.total_sales); // إجمالي المبيعات
 
-                // إنشاء الرسم البياني
+
                 new Chart(document.getElementById("daily-sales-chart"), {
                     type: 'line',
                     data: {
@@ -123,7 +119,6 @@
 </html>
 
                 
-{{--  --}}
 			
 		<!-- main-content closed -->
 @endsection

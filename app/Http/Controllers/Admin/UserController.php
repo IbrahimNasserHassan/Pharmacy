@@ -66,6 +66,8 @@ class UserController extends Controller
         return view('admin.users.edit', compact('user', 'roles'));
     }
 
+
+    
     public function update(Request $request, User $user)
     {
         $user->syncRoles($request->roles);

@@ -1,15 +1,18 @@
 @extends('layouts.master')
+@section('title')
+الفواتير
+@endsection
 @section('css')
 @endsection
 @section('page-header')
 				<!-- breadcrumb -->
-                <div class="breadcrumb-header justify-content-between">
-                    <div class="my-auto">
-                        <div class="d-flex">
-                            <h6 class="content-title mb-0 my-auto"> الفواتير</h6><span class="text-muted mt-1 tx-13 mr-2 mb-0">/ عرض الفواتير</span>
-                        </div>
-                    </div>
-                </div>
+    <div class="breadcrumb-header justify-content-between">
+        <div class="my-auto">
+            <div class="d-flex">
+                <h6 class="content-title mb-0 my-auto"> الفواتير</h6><span class="text-muted mt-1 tx-13 mr-2 mb-0">/ عرض الفواتير</span>
+            </div>
+        </div>
+    </div>
 				<!-- breadcrumb -->
 @endsection
 @section('content')

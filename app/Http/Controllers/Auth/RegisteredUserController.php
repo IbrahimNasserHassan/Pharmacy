@@ -29,28 +29,28 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        // التحقق من البيانات
+
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
-        // إنشاء المستخدم
+
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
 
-        // إسناد الادوار للمستخدم
+
         $user->assignRole($request->role);
 
-        //إنشاء الحساب للمستخدم 
+
         event(new Registered($user));
 
-        // تسجيل الدخول
+
         Auth::login($user);
 
-        return redirect(route('dashboard', absolute: false));
+        return redirect(route('Home', absolute: false));
     }
 }

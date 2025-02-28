@@ -1,32 +1,23 @@
 @extends('layouts.master')
 @section('title')
-عرض تفاصيل المنتج
+تفاصيل المنتج
 @endsection
 @section('css')
 @endsection
 @section('page-header')
-				<!-- breadcrumb -->
+				
 				<div class="breadcrumb-header justify-content-between">
 					<div class="my-auto">
 						<div class="d-flex">
-							<h4 class="content-title mb-0 my-auto">المنتجات</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/ تفاصيل المنتج</span>
+							<h6 class="content-title mb-0 my-auto">المنتجات</h6><span class="text-muted mt-1 tx-13 mr-2 mb-0">/ تفاصيل المنتج</span>
 						</div>
 					</div>
 					
 				</div>
-				<!-- breadcrumb -->
+
 @endsection
 @section('content')
-				<!-- row -->
-				<!DOCTYPE html>
-				<html lang="ar">
-				<head>
-					<meta charset="UTF-8">
-					<meta name="viewport" content="width=device-width, initial-scale=1.0">
-					<title>عرض المنتجات</title>
-					<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-				</head>
-				<body>
+				
 				
 				<div class="container mt-5">
 					<div class="card shadow-lg">
@@ -49,12 +40,11 @@
 						</div>
 					</div>
 				</div>
-				</body>
-				</html>
+				<br>
 				
 				
 				
-		<!-- main-content closed -->
+				
 @endsection
 @section('js')
 @endsection

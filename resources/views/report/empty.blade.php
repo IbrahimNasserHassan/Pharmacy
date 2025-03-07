@@ -14,9 +14,7 @@
 				<!-- breadcrumb -->
 @endsection
 @section('content')
-				<!-- row -->
-<!-- resources/views/reports.blade.php -->
-
+				
 <!DOCTYPE html>
 <html lang="ar">
 <head>

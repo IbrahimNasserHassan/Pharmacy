@@ -23,6 +23,8 @@ class InvoiceController extends Controller
     //     $this->authorizeResource(Invoice::class, 'invoice');
     // }
 
+    
+
     public function index()
     {
         $invoices = Invoice::select()->orderby('id','DESC')->paginate('50');
@@ -31,12 +33,18 @@ class InvoiceController extends Controller
                     //End Method
 
 
+
+
     public function create()
     {
         $products = Product::all();
         return view('invoices.invoicesCreate', compact('products'));
     }
                 //End Method
+
+
+
+
 
 
     public function store(Request $request)
@@ -61,8 +69,8 @@ class InvoiceController extends Controller
         foreach ($request->products as $productData) {
             $product = Product::findOrFail($productData['id']);
     
-            // التحقق من توفر الكمية المطلوبة
 
+            // التحقق من توفر الكمية المطلوبة
             if ($product->quantity < $productData['quantity']) {
                 return redirect()->back()->with('error', "الكمية المطلوبة من {$product->name} غير متوفرة!");
             }
@@ -73,7 +81,7 @@ class InvoiceController extends Controller
     
 
 
-            // فحص إذا كانت الكمية بعد الخصم أقل من الحد الأدنى
+
             if ($product->quantity < 5) {
                 session()->flash('warning', "⚠️ المنتج {$product->name} قارب على النفاد ({$product->quantity} قطع متبقية).");
             }
@@ -104,11 +112,16 @@ class InvoiceController extends Controller
 
 
 
+
+
+
     public function show(Invoice $invoice)
     {
         return view('invoices.InvoicesShow', compact('invoice'));
     }
             //End Method
+
+
 
 
 
@@ -123,6 +136,8 @@ return view('invoices.invoicesEdit', compact('invoice', 'products'));
 
     }
             //End Method
+
+
 
 
 
@@ -159,8 +174,10 @@ return view('invoices.invoicesEdit', compact('invoice', 'products'));
 
     
 
-    public function search(Request $request)
-{
+
+
+                    
+    public function search(Request $request){
     try {
         $request->validate([
             'from' => 'nullable|date',

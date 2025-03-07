@@ -26,10 +26,11 @@
                 <h4> # تفاصيل الفاتورة رقم: {{ $invoice->id }}</h4>
             </div>
             <div class="card-body">
-            
+                {{--  --}}
                 @if($invoice->products->isEmpty())
                     <p class="alert alert-danger mt-3">لا توجد بيانات في هذه الفاتورة.</p>
                 @endif
+                {{--  --}}
                 <div class="row row-sm">
                     <div class="col-md-12 col-xl-12">
                         <div class=" main-content-body-invoice">                                       

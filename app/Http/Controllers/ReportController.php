@@ -23,6 +23,9 @@ class ReportController extends Controller
                 
         return view('report.reports', compact('sales', 'from', 'to'));
     }
+    //End Method
+
+
     
 
     public function getDailySalesData(Request $request)
@@ -45,4 +48,6 @@ class ReportController extends Controller
 
         return response()->json($sales);
     }
+    //End Method
+    
 }
